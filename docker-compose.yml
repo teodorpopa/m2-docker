@@ -64,9 +64,21 @@ services:
     image: elasticsearch:7.9.2
     container_name: m2-apache_elasticsearch
     restart: always
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
     ports:
-      - 9200
-      - 9300
+      - 9200:9200
+      - 9300:9300
+    environment:
+      - node.name=es01
+      - cluster.name=es-docker-cluster
+      - discovery.seed_hosts=127.0.0.1:9300
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    volumes:
+      - esdata:/usr/share/elasticsearch/data
     networks:
       - m2-apache-network
 
@@ -86,4 +98,6 @@ volumes:
   m2-apache-sync:
     external: true
   dbdata:
+    driver: local
+  esdata:
     driver: local
