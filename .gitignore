@@ -1,0 +1,15 @@
+src/*
+!src/app
+!src/.gitkeep
+src/app/*
+!src/app/code
+!src/app/design
+!src/app/i18n
+
+
+.DS_Store
+/.idea
+/.docker-sync
+/docker-compose.yml
+/docker-compose-dev.yml
+/docker-sync.yml
