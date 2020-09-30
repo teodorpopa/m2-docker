@@ -61,7 +61,7 @@ services:
       - m2-apache-network
 
   elasticsearch:
-    image: elasticsearch:7.9.2
+    image: elasticsearch:7.6.2
     container_name: m2-apache_elasticsearch
     restart: always
     ulimits:
