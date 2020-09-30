@@ -60,6 +60,16 @@ services:
     networks:
       - m2-apache-network
 
+  elasticsearch:
+    image: elasticsearch:1.7
+    container_name: m2-apache_elasticsearch
+    restart: always
+    ports:
+      - 9200
+      - 9300
+    networks:
+      - m2-apache-network
+
   mailhog:
     image: mailhog/mailhog
     ports:
