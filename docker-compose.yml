@@ -76,6 +76,7 @@ services:
       - cluster.name=es-docker-cluster
       - discovery.seed_hosts=127.0.0.1:9300
       - bootstrap.memory_lock=true
+      - discovery.type=single-node
       - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
     volumes:
       - esdata:/usr/share/elasticsearch/data
